@@ -13,11 +13,7 @@ We can then build the instance:
 
     docker build . -t ccloud-neo4j:1.0.0
 
-We then login to Confluent Cloud, create a cluster, generate API key(s), and get the connection properties. This can be done via the UI or CLI. Once the cluster has been created we create three (compacted) topics that will be used by Connect:
-
-  - `connect-configs`
-  - `connect-offsets`
-  - `connect-status`
+We then login to Confluent Cloud, create a cluster, generate API key(s), and get the connection properties. This can be done via the UI or CLI.
 
 We can now spin-up the Kafka Connect container that contains the Neo4j sink:
 
@@ -26,7 +22,7 @@ We can now spin-up the Kafka Connect container that contains the Neo4j sink:
       -p 8083:8083 \
       -e CONNECT_BOOTSTRAP_SERVERS="pkc-lgk0v.us-west1.gcp.confluent.cloud:9092" \
       -e CONNECT_GROUP_ID="ccloud-docker-connect" \
-      -e CONNECT_CONFIG_STORAGE_TOPIC="connect-config" \
+      -e CONNECT_CONFIG_STORAGE_TOPIC="connect-configs" \
       -e CONNECT_OFFSET_STORAGE_TOPIC="connect-offsets" \
       -e CONNECT_STATUS_STORAGE_TOPIC="connect-status" \
       -e CONNECT_KEY_CONVERTER="org.apache.kafka.connect.json.JsonConverter" \

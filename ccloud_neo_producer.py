@@ -13,7 +13,7 @@ conf = {'bootstrap.servers': os.getenv('BROKER_ENDPOINT'),
 
 producer = Producer(conf)
 
-userlist = ['Rod', 'Jane', 'Freddie']
+userlist = ['Rod', 'Jane', 'Freddie', 'Zippy', 'Bungle']
 pagelist = ['ponies.org/shetland', 'harvard.edu/zuckerberg', 'zippy.com/rainbow', 'puppet.io/sooty',
             'bbc.co.uk/gloomy', 'aljazeera.com/gaza']
 
